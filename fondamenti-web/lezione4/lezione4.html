@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 4</title>
+</head>
+<!--  -->
+
+<body>
+    <h2>Link YT</h2>
+    <!-- il tag IFRAME inserisce un video da yt per non sovraccaricare il server -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CuCRyvh2t18" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+    <h1>Form</h1> <!-- noi stiamo lavorando solo lato client, non lato server, quindi per ora su action aka la pagina di risposta
+        impostiamo qualcosa che darà errore perche il server non lo abbiamo -->
+    <form action="inviaDati.php" method="post" name="contatti">
+        <h2>Contatta l'azienda</h2> <!-- dentro il form posso mettere altri titoli -->
+        <fieldset> <!-- il tag FIELDSET è facoltativo e serve per raggruppare dei dati -->
+            <legend>Dati anagrafici</legend> <!-- LEGEND aggiunge un titolo perche di default fieldset è invisibile -->
+            <label for="nominativo">Nominativo:</label>
+            <!-- LABEL serve per estendere lo spazio su cui cliccare per inserire i dati, dentro il FOR contiene l'id dell'oggetto a cui fa riferimento la LABEL -->
+            <input type="text" name="nominativo" id="nominativo" autofocus>
+            <!-- l'INPUT più comune è il tipo TEXT, in questo caso fa apparire uno spazio su cui scrivere, ID serve per collegare questo input alla LABEL sopra
+            AUTOFOCUS mette il focus automatico sul campo in cui viene messo appena si carica la pagina -->
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email" tabindex="2" multiple>
+            <!-- TABINDEX serve per modificare l’ordine in cui ti muovi tra i vari campi premendo TAB, affidando priorità diverse ai vari campi
+            MULTIPLE è un attributo che permette di specificare piu elementi, tipo mettere piu di una mail nel campo mail, 
+            che in genere ti da errore se metti uno spazio e poi un altra mail -->
+        </fieldset>
+        <!--  -->
+        <fieldset>
+            <legend>Dati di residenza</legend>
+            <label for="indirizzo">Indirizzo*:</label>
+            <input type="text" name="indirizzo" id="indirizzo" required>
+            <!-- L’asterisco dice all’utente che è obbligatorio, ma per renderlo tale devo mettere l’attributo REQUIRED vicino all’input -->
+            <label for="cap">CAP:</label>
+            <input type="text" name="cap" id="cap">
+            <label for="localita">Località:</label>
+            <!-- se ci sono parole con gli accenti, per evitare di incasinare il codice con caratteri strani lo si inserisce nelle parti tipo ID e NAME senza accento -->
+            <input type="text" name="localita" id="localita">
+            <label for="provincia">Provincia:</label>
+            <input type="text" name="provincia" id="provincia" disabled="disabled">
+            <!-- l'attributo DISABLED serve per bloccare un campo, 
+                di norma però devi mettere questo campo disabled anche lato PHP sul tuo server, sennò la gente può aprire gli strumenti per devs e renderlo enabled dal lato client -->
+        </fieldset>
+
+        <fieldset>
+            <legend>Dati di accesso</legend>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username" value="utente1">
+            <!-- l'attributo placeholder serve per mettere un testo placeholder dentro la box, 
+            value è un attributo che viene salvato dentro la banca dati per permetterti di accedere piu rapidamente dopo la prima volta -->
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" autocomplete="off">
+            <!-- la differenza tra TEXT e PASSWORD è che con il secondo mentre scrivo mi si nascondono i caratteri con dei pallini
+            AUTOCOMPLETE è un attributo on e off, serve per attivare o disattivare l’autocomplete, ad esempio nel campo password di solito è off -->
+        </fieldset>
+
+        <label for="messaggio">Messaggio</label>
+        <div> <!-- metto un div perche sennò la box viene di fianco -->
+            <textarea name="messaggio" id="messaggio" cols="30" rows="10"
+                placeholder="Scrivi qui il tuo messaggio"></textarea>
+            <!-- serve per creare una text box in cui scrivere, cols e rows stabiliscono la dimensione della box -->
+        </div>
+        <!-- le CHECKBOX servono per selezionare piu elementi -->
+        <section id="hobbies">
+            <h2>Hobby preferiti:</h2>
+            <label for="sport">Sport</label>
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <label for="gaming">Gaming</label>
+            <input type="checkbox" name="gaming" id="gaming">
+            <label for="disegno">Disegno</label>
+            <input type="checkbox" name="disegno" id="disegno">
+            <label for="dormire">Dormire</label>
+            <input type="checkbox" name="dormire" id="dormire">
+        </section>
+
+        <form action="">
+                  <fieldset>
+                       <legend>Linguaggi conosciuti</legend><br>
+                       <input type="checkbox" name="html" value="html" /> html
+                       <br />
+                       <input type="checkbox" name="css" value="css" /> css
+                       <br />
+                       <input type="checkbox" name="javascript" value="javascript" /> JavaScript
+                      </fieldset>
+                  </form>
+
+        <!-- RADIO è simile al checkbox ma permette una sola risposta per tutte le label che hanno il NAME uguale, quindi tra tutte quelle col name "forma-sociale" -->
+        <section>Forma societaria</section>
+        <h2>Forma sociale dell'azienda:</h2>
+        <label for="spa">SPA</label>
+        <input type="radio" name="forma-sociale" id="spa" value="1">
+        <!-- name è quello che passa al php, value invece è il valore che mi mostra quando passa il dato al server -->
+        <label for="srl">SRL</label>
+        <input type="radio" name="forma-sociale" id="srl" value="2" checked="true">
+        <!-- checked è per dare di default questo valore come checked -->
+        <label for="snc">SNC</label>
+        <input type="radio" name="forma-sociale" id="snc" value="3">
+
+        <section id="dati-nascita">
+            <!-- SELECT serve per fare un menu a tendina -->
+            <h2>Estremi certificato di nascita:</h2>
+            <label for="comune-nascita">Comune di nascita:</label>
+            <select name="comune-nascita" id="comune-nascita">
+                <optgroup label="Emilia Romagna">
+                    <!-- optgroup serve per raggruppare alcune delle opzioni in un sottogruppo -->
+                    <option value="Rimini">Rimini</option>
+                    <option value="Forli">Forlì</option>
+                </optgroup>
+                <optgroup label="Marche">
+                    <option value="Cesena">Cesena</option>
+                    <option value="Pesaro">Pesaro</option>
+                </optgroup>
+            </select>
+        </section>
+
+        <fieldset>
+            <legend>Altri Campi</legend>
+            <label for="curriculum">Curriculum Vitae:</label>
+            <input type="file" name="curriculum" id="curriculum">
+            <!-- FILE serve per caricare un file -->
+            <input type="hidden" name="id-utente" value="pippo">
+            <!-- HIDDEN serve per tenere nascosto dall'utente un campo che serve solo a me e che viene salvato nella pagina, senza mostrarlo
+            value può essere l'id utente con cui il sito ti salva per esempio, in genere è sempre dinamico non lo scrivi tu -->
+            <label for="colore-preferito">Colore preferito:</label>
+            <input type="color" name="colore-preferito" id="colore-preferito">
+            <!-- COLOR fa apparire un color picker -->
+            <label for="mese-preferito">Mese preferito:</label>
+            <input type="month" name="mese-preferito" id="mese-preferito">
+            <label for="giudizio">Esprimi un giudizio:</label>
+            <input type="number" min="1" max="10">
+            <!-- MIN e MAX permettono di consentire un minimo e un max a un mio campo -->
+            <!-- MONTH fa apparire un calendario -->
+        </fieldset>
+
+
+
+
+        <div>
+            <input type="submit" value="Richiedi informazioni"> <!-- SUBMIT serve per inviare i dati del form alla pagina di ACTION, posso inserirlo sia come INPUT
+                che come BUTTON, la diff è che INPUT è autochiudente, BUTTON invece devi scriverlo tu -->
+            <button type="submit">Richiedi informazioni (alt)</button>
+
+            <input type="reset" value="Annulla form">
+            <button type="reset">Annulla form (alt)</button>
+            <!-- posso usare i button anche per fargli fare altre cose come resettare il form -->
+
+            <button id="calcola-cf" type="button">Calcola codice fiscale</button>
+            <!-- questo è un comando piu complicato che vedremo su javascript, siccome non abbiamo scritto cosa fa l'ID calcola-cf in java, non farà nulla -->
+
+            <!-- XAMPP è un programma che simula un server web, all'interno della sua cartella htdocs crei diverse cartelle e ci copi gli stessi file .html su cui lavori qui
+            poi vai sul browser e vai sulla pagina LOCALHOST per aprire il file dal server web, apparirà uguale con la differenza che stavolta si appoggia a un server,
+            dando invio dopo aver creato InviaDati.php il form invia i dati al server php, 
+            Se li invii in modalità GET, vedi tutti i dati sull'URL (nome, cognome, etc), 
+            se li invii in modalità POST invece all'interno dell'URL non appaiono piu i tuoi dati, 
+            vengono passati in modo nascosto, tenendo l'URL piu pulito, ma appare il messaggio "conferma reinvio modulo" che è bruttino -->
+            <!-- Dando invio mi appare la pagina di anteprima di quello che stamperò -->
+        </div>
+    </form>
+</body>
+
+</html>

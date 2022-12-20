@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 5</title>
+</head>
+<!-- andrò a copiare questo file Lezione5.html su XAMPP per creare un file identico ma lato server per ricevere le info, 
+    mentre questo file rimane lato client soltanto, devono comunque essere uguali -->
+
+<body>
+    <h1>Form</h1>
+    <form action="invia-dati.php" method="GET">
+        <!-- per la pagina php che creiamo dopo, method per decidere se mandare i dati all'URL o meno -->
+        <fieldset>
+            <!-- fieldset per inserire il riquadro dentro al form -->
+            <legend>Dati di contatto</legend>
+            <label for="txtCognome">Cognome:</label>
+            <input type="text" name="txtCognome" id="txtCognome" value="Rossi">
+            <!-- txt non è obbligatorio è per sapere di che tipo di dato parliamo quando facciamo l'invio
+            value è per preimpostare quel nome come defaul la prossima volta che accedo al sito, per ricordare l'user -->
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required>
+            <!-- required per rendere un campo obbligatorio -->
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </fieldset>
+        <textarea name="commento" id="commento" cols="50" rows="5">Hi, my name is *shkshkshk*</textarea>
+        <fieldset>
+            <legend>Titolo di studio</legend>
+            <input type="radio" name="titolo-di-studio" id="licenza-media">
+            <label for="licenza-media">Licenza media</label>
+            <input type="radio" name="titolo-di-studio" id="maturita">
+            <label for="maturita">Diploma di maturità</label>
+            <input type="radio" name="titolo-di-studio" id="triennale">
+            <label for="triennale">Laurea triennale</label>
+            <input type="radio" name="titolo-di-studio" id="magistrale">
+            <label for="magistrale">Laurea magistrale</label>
+            <!-- radio per checkbox a risposta esclusiva, metto un input radio e un label per ciascuna risposta -->
+        </fieldset>
+        <section>
+            <button type="submit">Invia Dati</button>
+            <!-- per inviare i dati alla pagina php -->
+            <button type="reset">Reimposta Dati</button>
+            <!-- per resettare i dati -->
+        </section>
+    </form>
+</body>
+
+</html>
