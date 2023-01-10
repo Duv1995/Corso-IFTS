@@ -35,7 +35,7 @@
 
     echo "<hr>";
     //----------------------------------------------------------------------------------------------------------------------//
-    
+
     //Esercizio: dati due numeri x e y voglio assegnare alla variabile $m il valore maggiore tra x e y
     $x = 1;
     $y = 2;
