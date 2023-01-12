@@ -38,7 +38,7 @@
     if ($x > 0) {
         $y = $x;
     } else {
-        $y = $x * (-1);
+        $y = $x * (-1); //così se fosse -10 diventerebbe +10 perche -*- fa +
     }
     echo "$y";
     echo "<hr>";
@@ -55,7 +55,7 @@
 
     /*ESERCIZIO 2: Se decidessero di dividere in parti uguali, arrotondando all’euro,
     quanto lascerebbero di mancia? per scoprirlo devo utilizzare il MODULO % */
-    if (true) {
+    if (($a+$b+$c %3)==0) { //se il modulo da resto 0???? allora???
         echo "condizione vera";
     } else {
         echo "condizione falsa";
