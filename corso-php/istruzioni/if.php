@@ -26,11 +26,11 @@
     che possono essere anche molto complicate magari mettendo altri IF dentro le graffe
     IF (condizione) {"testo vero"} ELSE {"testo falso"}*/
 
-    if (true) {
-        echo "condizione vera";
-    } else {
-        echo "condizione falsa";
-    }
+    // if (true) {
+    //     echo "condizione vera";
+    // } else {
+    //     echo "condizione falsa";
+    // }
     echo "<br>";
 
     echo "<hr>";

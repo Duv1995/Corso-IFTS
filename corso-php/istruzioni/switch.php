@@ -118,7 +118,13 @@ Switch (tra parentesi una variabile $x) e poi seguono tutti i valori possibili d
 
     //PER CASA: quanti giorni mancano al tuo compleanno?
     //mi serve la data di oggi e quella del compleanno, poi andare a calcolare ogni mese 
-
+/* se il compleanno è gia passato faccio la somma tra il mio comple alla fine dell'anno + i giorni dall'inizio dell'anno a oggi
+devo calcolare quanti giorni mancano alla fine del mese corrente + tutti i giorni degli altri mesi
+DEVI PRENDREDRE DUE VARIABILI, IL MESE E I GIORNI
+poi fai la differenza tra giorni passati dall'inizio del mese
+fai il calcolo di quanti giorni mancano e di quanti mesi mancano poi li sommi assieme
+PER METTERE UNA DATA FISSA
+*/
 
 
 
