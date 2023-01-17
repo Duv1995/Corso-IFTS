@@ -26,10 +26,15 @@
 
     echo "<hr>";
 
-    //creiamo un ciclo per rendere dinamico l'indice degli array
+    //creiamo un ciclo per rendere dinamico l'indice degli array e per scorrerli
 
     for ($i = 0; $i < 10; $i++) { //imposto il valore dei primi 10 indici tutti in una volta con il FOR
-        $a[$i] = rand(0,100); //metto un indice dinamico in modo che ogni indice fino al decimo assumano valore di un numero random tra 0 e 100
+        $a[$i] = rand(0, 100); //metto un indice dinamico in modo che ogni indice fino al decimo assumano valore di un numero random tra 0 e 100
+        //questo è il classico ciclo che si usa per scorrere gli elementi dell'array
+    }
+
+    //se non ho il numero di indici gia dato allora metto
+    for ($i = 0; $i < count($a); $i++) { //posso usare count($a) oppure length ($a)
     }
 
     //stampo il contenuto dell'array che ho inizializzato col ciclo
@@ -38,9 +43,34 @@
         //metto ($i+1) per far partire il contantore da 1) e non da 0)
     }
 
+    //voglio assegnare agli indici del mio array 0 se l'indice è pari, e 1 se l'indice è dispari
+    for ($i = 0; $i < 3; $i++) {
+        if ($i % 2 == 0) {
+            $a[$i] = 0; //se il modulo viene pari assegno valore 0
+        } else {
+            $a[$i] = 1; //se il modulo viene dispari assegno valore 1
+        }
+    }
+
+    //voglio calcolare la somma dei valori dell'array
+    $a[0] = 0;
+    $a[1] = 7;
+    $a[2] = -9;
+    $s = 0; //all'inizio devo dare alla somma valore 0
+
+    for ($i = 0; $i < 3; $i++) {
+        $s = $s + $a[$i]; //somma parziale di tutte le iterazioni precedenti + elemento $i-esimo ogni ciclo fino ad arrivare alla somma totale
+        //posso anche scriverlo come $s += $a[$i];
+    }
 
 
-
+    //voglio far si che il numero piu alto dei valori dell'array diventi il 
+    $max = $a[0]; //solo se esiste l'indice $i = 0
+    for ($i = 0; $i < count($a); $i++) {
+        if ($a[$i] > $max) {
+            $max = $a[$i];
+        }
+    }
 
 
 
