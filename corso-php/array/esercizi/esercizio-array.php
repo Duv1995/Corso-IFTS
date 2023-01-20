@@ -39,7 +39,8 @@ schede servono in totale per le elezioni. -->
     // scrivendo in grassetto le età dei maggiorenni e in corsivo quelle dei minorenni (0 corrisponde ad un neonato);
 
     //2. in un riquadro, riportare il numero dei neonati e l'età del più anziano;
-    $max = $eta[0]; //prima inizializzo il valore massimo che prima del ciclo è sempre 0 che mi servirà per trovare il piu anziano
+    $max = $eta[0]; /*prima inizializzo il valore massimo (trovato fin ora) 
+    che prima del ciclo è sempre 0 che mi servirà per trovare il piu anziano*/
     $neonati = 0; //inizializzo anche il numero dei neonati che partono da 0
 
     //3. calcolare e visualizzare l'età media dei maggiorenni.
@@ -57,9 +58,10 @@ schede servono in totale per le elezioni. -->
         }
         echo "<br>";
 
-        //per trovare il piu anziano
+        //per trovare il piu anziano confronto i valori dell'array con ogni max trovato fino ad ora
         if ($eta[$i] > $max) { //se trovo un età piu grande del max trovato fin ora
-            $max = $eta[$i]; //lo indico come il nuovo max che stamperò come il piu anziano
+            $max = $eta[$i]; /*lo indico come il nuovo max che stamperò come il piu anziano, 
+            e nei successivi cicli paragonerà il nuovo max con gli altri valori finchè non ne trova uno ancora maggiore*/
         }
 
         //per trovare il numero di neonati

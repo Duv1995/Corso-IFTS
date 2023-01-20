@@ -45,7 +45,7 @@
 
     //voglio assegnare agli indici del mio array 0 se l'indice è pari, e 1 se l'indice è dispari
     for ($i = 0; $i < 3; $i++) {
-        if ($i % 2 == 0) {
+        if ($i % 2 == 0) { //si puo omettere == 0 perche se non lo metto lui verifica gia che sia un multiplo di default
             $a[$i] = 0; //se il modulo viene pari assegno valore 0
         } else {
             $a[$i] = 1; //se il modulo viene dispari assegno valore 1
@@ -67,7 +67,7 @@
     //voglio far si che il numero piu alto dei valori dell'array diventi il 
     $max = $a[0]; //solo se esiste l'indice $i = 0
     for ($i = 0; $i < count($a); $i++) {
-        if ($a[$i] > $max) {
+        if ($a[$i] > $max) { //semplicemente comparo uno a uno i valori di ogni indice fino a trovare quello piu grande
             $max = $a[$i];
         }
     }
