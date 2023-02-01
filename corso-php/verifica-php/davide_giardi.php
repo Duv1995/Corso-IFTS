@@ -44,7 +44,7 @@
     // scrivendo in grassetto i voti sufficienti e in corsivo quelli insufficienti (sufficienza = 60, lode = 101);
     $style_suff = "b";
     $style_insuff = "i";
-    
+
     //inizializzo variabili per i tipi di voto
     $sufficienti = 0;
     $insufficienti = 0;
@@ -53,7 +53,7 @@
     $peggiori = 0; //numero di studenti che hanno preso il voto peggiore
     $somma_suff = 0;
     $potenzialmente_ammessi = 0; //quelli con voto minimo di 80
-    
+
     echo "<hr>";
     // 4. modificare l'elenco del punto precedente utilizzando un ELENCO ORDINATO html; (ol, li)
     echo "<ol>";
@@ -128,10 +128,10 @@
     // calcolare e visualizzare quanti sono gli studenti 
     // potenzialmente ammessi e di questi la percentuale che rimane in lista d'attesa (percentuale : 100).
     echo "gli studenti potenzialmente ammessi al corso specialistico sono $potenzialmente_ammessi <br>";
-    
+
     $posti = 10;
-    for ($i = $posti; $i < $potenzialmente_ammessi; $posti--){
-//rip non mi è bastato il tempo per finirlo :/
+    for ($i = $posti; $i < $potenzialmente_ammessi; $posti--) {
+        //rip non mi è bastato il tempo per finirlo :/
     }
 
 
