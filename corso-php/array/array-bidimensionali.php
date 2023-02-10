@@ -33,7 +33,7 @@
     // cosa vuol dire a questo punto fare un FOREACH di $studenti?
     foreach ($studenti as $s) {
         //do un nome all'elemento $i-esimo di $studenti => $s è come scrivere $a[$i]
-        //ad ogni iterazione quella variabile viene memorizzato l'array coi dati di ogni singolo studente
+        //ad ogni iterazione di quella variabile viene memorizzato l'array coi dati di ogni singolo studente
         // echo $s; //non lo posso assolutamente fare cosi!!
         echo $s['nome'] . "<br>"; //così invece siii, devo specificare la cella e mi stamperà tutti i nomi
     }

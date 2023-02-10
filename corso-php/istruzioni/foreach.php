@@ -13,7 +13,7 @@
     // FOR EACH
     // si utilizza per scorrere i valori di un QUALSIASI TIPO di array
     $arr = array(1, 2, 3, 4);
-    foreach ($arr as &$value) {
+    foreach ($arr as $value) {
         // decido io di chiamare i contenuti di $partecipanti => $p
         // voglio scorrere l'intero array $p per fare la echo dei suoi contenuti
         $value = $value * 2;

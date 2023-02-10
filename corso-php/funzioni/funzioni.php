@@ -32,20 +32,49 @@
 
     // come si definisce una funzione?
     // per prima cosa scrivo la parola chiave FUNCTION, serve per dire 'sto definendo una funzione'
-    function mia_somma($a, $b) { // così definisco la mia funzione, indicandone i parametri di input
+    function mia_somma($a, $b)
+    { // così definisco la mia funzione, indicandone i parametri di input
         // dentro le graffe scrivo il codice che deve eseguire la funzione
         $risultato = $a + $b; //questa è l'operazione da svolgere
         // le variabili che appaiono dentro la FUNCTION sono celle di memoria
-        // temporanee, che hanno visibilità solo dentro alla funzione e non interferiscono
+        // temporanee, che hanno visibilità SOLO DENTRO alla funzione e non interferiscono
         // con ciò che c'è fuori dalla mia funzione!
         // finita la funzione le mie variabili $risultato, $a, $b si resettano,
         // hanno ciclo di vita e visibilità solo interne alla funzione!
-        return $risultato
-    // utilizzando RETURN posso salvarmi il valore della mia operazione 
-    // e RESTITUIRLA alla funzione che la ha richiamata => $r = mia_somma(3, 2);
-    // inoltre, tutto ciò che scrivo dopo return non conta 
-    // perche è il terminatore della mia funzione
-    } 
+        return $risultato;
+        // utilizzando RETURN posso salvarmi il valore della mia operazione 
+        // e RESTITUIRLA alla funzione che la ha richiamata => $r = mia_somma(3, 2);
+        // inoltre, tutto ciò che scrivo dopo return non conta 
+        // perche è il terminatore della mia funzione
+        // return lo scrivo sempre come ultima cosa prima di chiudere la graffa
+    }
+
+
+    // voglio scrivere una funzione che calcola la media dei promossi soltanto
+    // per farlo devo passargli l'array per dirgli in modo dinamico quanti voti
+    // e di che valore sono ($a è l'array dunque, $s è il voto minimo sufficiente)
+    // questi sono i due valori fondamentali per poter eseguire questa funzione
+    function media_promossi($a, $s)
+    { // inizializzo dei valori dentro la funzione
+        $somma = 0; 
+        $i = 0;
+        foreach ($a as $voto) {
+            if ($voto >= $s) {
+                $somma += $voto;
+                $i++;
+            }
+        }
+        return ($i > 0 ? ($s / $i) : 0);
+    }
+
+
+
+
+
+
+
+
+
 
 
 
