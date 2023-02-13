@@ -169,6 +169,114 @@
     echo "<hr>";
 
 
+    // per l'altro stack di array associativi questa operazione è piu difficile!
+    // devo sempre trovare il numero di corsi e il numero di partecipanti, ma sta volta non ho i numeri gia pronti
+    // inoltre devo stare attento a non inserire piu volte lo stesso corso
+    $numero_corsi = 0;
+
+    foreach ($studenti as $studente) {
+        // mi serve un array nuovo a partire dall'array associativo, in cui inserirò i corsi univoci per contarli
+        // inserisco il corso in un array, ma solo se non è gia presente (attento ai duplicati!)
+        echo $studente['corso'] . "<br>";
+        // così mi escono scritti tutti i nomi dei corsi per ciascun array di studente
+        // li inserisco in un array nuovo
+        $elenco_corsi[] = $studente['corso'];
+    }
+    // devo ora eliminare i corsi duplicati
+    // ARRAY UNIQUE = elimina i duplicati dell'array che metti come input
+    $elenco_corsi = array_unique($elenco_corsi);
+    // ora conto il numero di elenco corsi ripulito!
+    $numero_corsi = count($elenco_corsi);
+    echo "i corsi (non duplicati) sono $numero_corsi <br>";
+
+    // conto gli studenti che sono contenuti nell'array studenti, easy
+    $numero_partecipanti = count($studenti);
+    //  calcolo la media
+    $media_s = $numero_partecipanti / $numero_corsi;
+    echo "la media di studenti per corso è $media_s persone per corso <br>";
+    echo "<hr>";
+    // -----------------------------------------------------------------------------------------------------------//
+
+    // 4 - indicare il nome del corso con il maggior numero di partecipanti
+
+    $massimo = 0; //inizializzo nuova variabile
+    for ($i = 0; $i < count($corsi); $i++) {
+        if (count($partecipanti[$i]) > $massimo) {
+            // trovo il numero di partecipanti di ogni corso
+            $massimo = count($partecipanti[$i]);
+            // ad ogni passaggio paragono per vedere se è piu grande del mio vecchio massimo
+            // a inizio ciclo il mio massimo vale 0 quindi prende subito valore del primo corso
+            $corso_massimo = $i;
+            // quando aggiorno il massimo mi faccio una copia della $i sennò continua a incrementarsi
+        }
+    }
+    echo "il corso con piu iscritti è " . $corsi[$corso_massimo];
+    echo "<hr>";
+
+    // con l'array associativo E' ANCORA PIU IGNORANTE da gestire... lmao
+    // ci dobbiamo creare un array di corsi e di numero partecipanti, un po come abbiamo fatto con la media
+    $elenco_corsi = array(); //lo inizializzo come array vuoto
+    $numero_studenti = array();
+
+    // foreach ($studenti as $studente) {
+    //     //scorro e verifico se il corso è già presente nell'array
+    //     if (in_array($studente['corso'], $elenco_corsi)) {
+    //         // IN_ARRAY (se studente chiave corso è gia presente in array elenco corsi)
+    //         // verifico che il 'corso' non sia gia presente nel mio array vuoto $elenco_corsi
+    //         //se il corso esiste già, aumento i partecipanti
+    //         $numero_studenti[$studente['corso']]++;
+    //     } else {
+    //         // se non è gia presente nel mio array lo aggiungo a $elenco_corsi
+    //         $elenco_corsi[] = $studente['corso'];
+    //         $numero_studenti[] = 1;
+    //     }
+    // }
+
+    // UN ALTERNATIVA PIU BELLA per fare questo lavoro è usando KEY_EXISTS
+    foreach ($studenti as $studente) {
+        //verifico se il corso è già presente nell'array
+        if (key_exists($studente['corso'], $numero_studenti)) {
+            // gli chiedo c'è la chiave 'corso'?  
+            // se c'era già la incrementi di +1
+            $numero_studenti[$studente['corso']]++;
+        } else {
+            // se non esiste la chiave di un corso la aggiungo come nuova e la inizializzo a 1
+            //il corso non esiste, lo aggiungo all'array e inizializzo i partecipanti a 1
+            $numero_studenti[$studente['corso']] = 1;
+        }
+    }
+
+    $massimo = 0;
+    foreach($numero_studenti as $key => $value){
+        echo 'key: ' . $key . '<br>';
+        echo 'value: ' . $value . '<br>';
+        if($value > $massimo){
+            //se il valore di numero di studenti è superiore al massimo, segno i valori
+            $massimo = $value;
+            $corso_massimo = $key;
+        }
+    }
+    echo "il corso con più iscritti è " . $corso_massimo;
+    echo "<hr>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
