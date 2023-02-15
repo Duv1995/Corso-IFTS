@@ -67,7 +67,7 @@
     echo "<hr>";
 
     // 4. indicare il nome del gioco con il maggior numero di boss
-    // ho bisogno di contare quanti boss in ciascun gioco, poi paragonarli tra loro, 
+    // ho bisogno di contare quanti boss ci sono in ciascun gioco, poi paragonarli tra loro, 
     // paragonarli tra loro e assegnare alla variabile $max_num_boss quello piu grande
     $max_num_boss = 0; //inizializzo il max num di boss
 
@@ -139,35 +139,14 @@
     $giochi = ["Sekiro", "Elden Ring", "Bloodborne"];
 
     foreach ($fromsoft as $k => $v) {
-        $nome_gioco = $giochi[$k];
+        $nome_gioco = $giochi[$k]; // (sekiro, ER, BB, etc...)
         // inizializzo $nome_gioco, che è un elemento di $giochi 
         // che prende il valore di quello che c'è scritto nei suo indice $k (quindi sekiro, ER, bb, etc)
-            $v['gioco'] = $nome_gioco;
+            $v['gioco'] = $nome_gioco; 
+            //ad ogni ciclo aggiungo chiave al mio $v (boss1, boss2, etc) con valore $nome_gioco
             print_r($v);
     }
     echo "<hr>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
