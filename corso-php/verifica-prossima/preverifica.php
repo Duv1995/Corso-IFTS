@@ -88,7 +88,6 @@
                 $risultato = $key;
             }
         }
-
         return $risultato;
     }
 
@@ -115,7 +114,7 @@
         foreach ($domande as $domanda) {
             //verifico se il corso è già presente nell'array
             if (key_exists($domanda['categoria'], $elenco_categorie)) {
-                //la categoria esiste già, aumento i partecipanti
+                //la categoria esiste già, aumento i partecipanti dentro un array
                 $elenco_categorie[$domanda['categoria']]++;
             } else {
                 //la categoria non esiste, lo aggiungo all'array e inizializzo le domande a 1
@@ -123,7 +122,7 @@
             }
         }
 
-        //cerco la categoria che ha piùà domande
+        //cerco la categoria che ha più domande
         $massimo = 0;
         foreach ($elenco_categorie as $key => $value) {
             if ($value > $massimo) {
