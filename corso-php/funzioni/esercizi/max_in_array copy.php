@@ -10,43 +10,56 @@
 
 <body>
     <?php
-
-    //definire la funzione somma2 che somma 2 numeri
-    function somma2($x, $y)
+// --------------------------------------------------------------------------------------------------------- //
+    //definire la funzione sommina che somma 2 numeri
+    function sommina($x, $y)
     {
         return $x + $y;
     }
 
-    echo "somma2 = " . somma2(1.2, 1.3);
+    echo "sommina = " . sommina(1.2, 1.3);
+    echo "<hr>";
 
-    //definire la funzione somma3 che somma 3 numeri, usando la somma2
-    function somma3($a, $b, $c)
+// --------------------------------------------------------------------------------------------------------- //
+
+    //definire la funzione sommina_alt che somma 3 numeri, usando la sommina
+    function sommina_alt($a, $b, $c)
     {
-        // return $a + $b + $c; troppo facile così, devo usare la somma2
-        return somma2(somma2($a, $b), $c);
-        // utilizzo somma2 dandogli come input un altro somma 2 di due numeri e un terzo numero!
+        // return $a + $b + $c; troppo facile così, devo usare la sommina
+        return sommina(sommina($a, $b), $c);
+        // utilizzo sommina dandogli come input un altro somma 2 di due numeri e un terzo numero!
     }
 
-    echo "<br>somma3 = " . somma3(1, 2, 3);
+    echo "<br>sommina_alt = " . sommina_alt(1, 2, 3);
+    echo "<hr>";
+
+// --------------------------------------------------------------------------------------------------------- //
 
     //stessa cosa degli esercizi sopra ma con la media
 
-    function mediaInventata2($x, $y)
+    function media_inventata($x, $y)
     {
-        return $x + $y / 2;
+        return ($x + $y) / 2;
     }
+
+    echo "<br>media_inventata = " . media_inventata(10, 5);
+    echo "<hr>";
+
 
     function mediaInventata3($a, $b, $c)
     {
-        return mediaInventata2(mediaInventata2($a, $b), $c);
+        return media_inventata(media_inventata($a, $b), $c);
     }
 
     $m = mediaInventata3(3, 3, 3);
 
-    echo "<br>mediaInventata2 = "
-        . number_format($m, 2, ",", ".")
+    echo "<br>media_inventata = "
+        . number_format($m, 2, ",", ".");
     // uso una funzione standard per arrotondare il risultato
+    echo "<hr>";
 
+    // --------------------------------------------------------------------------------------------------------- //
+    
 
 
 

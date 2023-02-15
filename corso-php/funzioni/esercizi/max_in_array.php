@@ -34,7 +34,7 @@
 
         foreach ($a as $v) { // scorro il mio array trovando i vari valori
             if (isset($min)) {
-                // funzione isset mi dice se una variabile (in questo caso $min) è ettata oppure no
+                // funzione isset mi dice se una variabile (in questo caso $min) è settata oppure no
                 // non è settata se è la prima iterazione
                 $min = $v; // quindi metto in min il primo valore per inizializzarla
             }
