@@ -1,0 +1,25 @@
+/* chiamo il file css basic.css */
+
+.quadrato {
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.bgBianco {
+    background-color:white;
+}
+.bgVerde {
+    background-color: lightgreen;
+}
+.bgRosso {
+    background-color: lightcoral;
+}
+.bgBlu {
+    background-color: lightskyblue;
+}
+
+body{
+    background-color: #FFF;
+}

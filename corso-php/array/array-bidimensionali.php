@@ -28,29 +28,52 @@
     // dunque:
     $studenti[0]['nome']; //semplicemente unisco entrambi!
     echo $studenti[0]['nome']; //mi stamperà "mario"
-
     echo "<hr>";
+
+    // SCORRERE L'ARRAY 
     // cosa vuol dire a questo punto fare un FOREACH di $studenti?
     foreach ($studenti as $s) {
-        //do un nome all'elemento $i-esimo di $studenti => $s è come scrivere $a[$i]
+        //do un nome all'elemento valore $i-esimo di $studenti => $s è come scrivere $a[$i] => mi trova i valori
         //ad ogni iterazione di quella variabile viene memorizzato l'array coi dati di ogni singolo studente
-        // echo $s; //non lo posso assolutamente fare cosi!!
-        echo $s['nome'] . "<br>"; //così invece siii, devo specificare la cella e mi stamperà tutti i nomi
+        //echo $s; //non lo posso assolutamente fare cosi!!
+        echo $s['nome'] . "<br>"; // devo infatti specificare la cella/chiave e mi stamperà 
+        // tutti i nomi che trova in quella posizione per ciascun array che sta dentro il mio gruppo
     }
+    echo "<hr>";
+
+    // ESERCITAZIONE
+    $sekiro =['storia' => 10, 'gameplay' => 10, 'design' => 10];
+    $elden_ring=['storia' => 5, 'gameplay' => 7, 'design' => 5];
+    $giochi=[$sekiro, $elden_ring];
+
+    // stampo i valori di un array con foreach
+    foreach($sekiro as $key => $val){
+        echo "$key => $val <br>";
+    }
+    echo "<hr>";
+
+    foreach($giochi as $hehe){
+        foreach ($hehe as $key => $val){
+            echo "$key => $val ";
+        }
+        echo "<br>";
+    }
+    echo "<hr>";
+
 
     // FOREACH INNESTATI
     // per scorrere tutti i valori dentro tutti gli array bidimensionali 
-    // devo utilizzare due foreach innestati!
-    echo "<hr>";
+    // devo per forza utilizzare due foreach innestati!
     foreach ($studenti as $s) {
         foreach ($s as $k => $v) {
-            echo "$v<br>"; //stampo tutti i valori presenti nei miei array bidimensionali
+            echo "$v "; //stampo tutti i valori presenti nei miei array bidimensionali
         }
+        echo "<br>";
     }
     echo "<hr>";
 
 
-    // ESERCIZIO
+    // ESERCIZIO: DUE MODI DI SCORRERE UN ARRAY BIDIMENSIONALE
     $s1 = ['nome' => "Mario", 'cognome' => "Rossi", 'voto' => 10];
     $s2 = ['nome' => "Luigi", 'cognome' => "Verdi", 'voto' => 8];
     $s3 = ['nome' => "Maria", 'cognome' => "Rossini", 'voto' => 5];
@@ -60,7 +83,7 @@
 
     print_r($s1); //stampo tutti i valori dentro il primo array
     echo "<br>";
-    print_r($s); //così invece stampa tutto con davanti la chiave 0,1,2,3 per elencare gli array interni
+    print_r($s); //così invece stampa tutto con davanti la chiave 0,1,2,3 per elencare i vari array che contiene
     echo "<br>";
 
     echo "<br>";
@@ -94,11 +117,13 @@
     echo "<th>Cognome</th>";
     echo "<th>Voto</th>";
     echo "</tr>";
-    foreach ($s as $studente) { //il primo ciclo scorre tutti gli elementi del primo array principale (i nomi degli studenti)
+    foreach ($s as $studente) { //il primo ciclo scorre tutti gli elementi 
+        // del primo array principale (i nomi degli studenti)
         echo "<tr>";
-        foreach ($studente as $k => $v) { //il secondo dice che per ogni studente scorro tutti gli elementi che lo contraddistinguono
-            //gli dico di stampare tutti i singoli valori contenuti negli array interni degli studenti
+        foreach ($studente as $k => $v) { //il secondo dice che per ogni studente scorro  
+            // tutti gli elementi che lo contraddistinguono 
             echo "<td> $v </td>";
+            // gli dico di stampare tutti i singoli valori contenuti negli array interni degli studenti
         }
         echo "</tr>";
     }

@@ -18,7 +18,7 @@
     VARIABILE
     Una variabile è un nome associato ad uno spazio di memoria RAM, 
     il codice di programmazione utilizza il nome della variabile per leggere e scrivere la RAM.
-    VARIABILE = è una cella di dati he contiene un singolo valore
+    VARIABILE = è una cella di dati che contiene un singolo valore
 
     ARRAY
     Un array è un nome associato ad una serie di spazi di memoria RAM, 
@@ -31,7 +31,7 @@
     ARRAY BIDIMENSIONALE
     Un array bidimensionale è un nome associato ad una tabella, 
     dove le chiavi del mega array rappresentano le colonne
-    e le chiavi degli array al suo interno rappresentano le colonne.
+    e le chiavi degli array al suo interno rappresentano le righe.
 
     Esempio tabella:
     $s1=[‘cognome’=>”Primini”, ‘nome’=>”Primo”,’corso’ => “Autocad”];
@@ -85,8 +85,14 @@
     echo "<hr>";
 
     /* 
-    Nell'array bidimensionale $partecipanti ogni elemento rappresenta un array di partecipanti ai vari corsi svolti dall'ente di formazione Enaip. I singoli array $p1, $p2, ecc contengono i cognomi e nomi dei partecipanti ad un corso specifico.
-    L'array $corsi contiene i nomi dei corsi, nello stesso ordine del primo, cioè il corso Autocad è stato seguito dai partecipanti elencati in $p1, Informatica è stato seguito dai partecipanti di $p2, ecc.
+    Nell'array bidimensionale $partecipanti ogni elemento rappresenta un array di partecipanti 
+    ai vari corsi svolti dall'ente di formazione Enaip. 
+    I singoli array $p1, $p2, ecc contengono i cognomi e nomi dei partecipanti ad un corso specifico.
+    L'array $corsi contiene i nomi dei corsi, nello stesso ordine del primo, 
+    cioè il corso Autocad è stato seguito dai partecipanti elencati in $p1, 
+    Informatica è stato seguito dai partecipanti di $p2, ecc.
+
+    // ----------------------------------------------------------------------------------------------------------//
 
     Si chiede di svolgere le seguenti attività:
     1 - aggiungere il nuovo partecipante 'Novella Novellini' al corso di Informatica 
@@ -156,7 +162,7 @@
     // count mi conta automaticamente il NUMERO di elementi dentro $corsi (3)
     echo "ci sono $numero_corsi corsi <br>";
 
-    // per trovare la somma del numeri di partecipanti posso usare un solo FOREACH
+    // per trovare la somma del numero di partecipanti posso usare un solo FOREACH
     $numero_partecipanti = 0; //prima inizializzo la nuova variabile
     foreach ($partecipanti as $array_p) {
         $numero_partecipanti += count($array_p);
@@ -236,21 +242,24 @@
     foreach ($studenti as $studente) {
         //verifico se il corso è già presente nell'array
         if (key_exists($studente['corso'], $numero_studenti)) {
-            // gli chiedo c'è la chiave 'corso'?  
+            // gli chiedo esiste gia il valore contenuto nella chiave 'corso' dentro il mio nuovo array?  
+            // guarda prima nell'else...
             // se c'era già la incrementi di +1
             $numero_studenti[$studente['corso']]++;
+            // es c'è gia "informatica" allora incremento il mio valore dell'array nuovo di +1
         } else {
             // se non esiste la chiave di un corso la aggiungo come nuova e la inizializzo a 1
-            //il corso non esiste, lo aggiungo all'array e inizializzo i partecipanti a 1
+            // per es $studente['corso'] = "informatica", esiste informatica? 
+            // se no aggiungo un nuovo valore al mio array che avrà come chiave 'informatica' e come valore 1
             $numero_studenti[$studente['corso']] = 1;
         }
     }
 
     $massimo = 0;
-    foreach($numero_studenti as $key => $value){
+    foreach ($numero_studenti as $key => $value) {
         echo 'key: ' . $key . '<br>';
         echo 'value: ' . $value . '<br>';
-        if($value > $massimo){
+        if ($value > $massimo) {
             //se il valore di numero di studenti è superiore al massimo, segno i valori
             $massimo = $value;
             $corso_massimo = $key;
@@ -258,32 +267,6 @@
     }
     echo "il corso con più iscritti è " . $corso_massimo;
     echo "<hr>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

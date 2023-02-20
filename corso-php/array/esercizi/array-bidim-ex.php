@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESERCIZIO SIMI-VERIFICA</title>
+    <title>ESERCIZIO SIMIL-VERIFICA</title>
 </head>
 
 <body>
@@ -17,17 +17,17 @@ $p1 = ["Primini Primo", "Secondini Secondo"]; (partecipanti corso 1)
 $p2 = ["Giannini Gianni", "Stefanini Stefano", "Mariolini Maria","Giacomini Giacomo"], (partecipanti corso 2)
 $p3 = ["Violetti Viola","Gaietti Gaia"]; (partecipanti corso 3)
 $partecipanti= [$p1, $p2, $p3];
-$corsi = ["Autocad","Informatica","Inglese"];
-Nell'array bidimensionale $partecipanti ogni elemento rappresenta un array di partecipanti ai
+$corsi = ["Autocad","Informatica","Inglese"];*/
+/*Nell'array bidimensionale $partecipanti ogni elemento rappresenta un array di partecipanti ai
 vari corsi svolti dall'ente di formazione Enaip. I singoli array $p1, $p2, ecc contengono i
 cognomi e nomi dei partecipanti ad un corso specifico.
 L'array $corsi contiene i nomi dei corsi, nello stesso ordine del primo, cioè il corso Autocad è
 stato seguito dai partecipanti elencati in $p1, Informatica è stato seguito dai partecipanti di $p2,
 ecc.*/
 
-    $p1 = ["Primini Primo", "Secondini Secondo"];
-    $p2 = ["Giannini Gianni", "Stefanini Stefano", "Mariolini Maria", "Giacomini Giacomo"];
-    $p3 = ["Violetti Viola", "Gaietti Gaia"];
+    $p1 = ["Primini Primo", "Secondini Secondo"]; //corso 1
+    $p2 = ["Giannini Gianni", "Stefanini Stefano", "Mariolini Maria", "Giacomini Giacomo"]; //corso 2
+    $p3 = ["Violetti Viola", "Gaietti Gaia"]; //corso 3
 
     $partecipanti = [$p1, $p2, $p3];
     // un altro modo per scrivere il contenuto di $partecipanti
@@ -39,7 +39,8 @@ ecc.*/
     $corsi = ["Autocad", "Informatica", "Inglese"];
 
     // Si chiede di svolgere le seguenti attività:
-    // 1. aggiungere il nuovo partecipante "Novella Novellini" al corso di Informatica (aggiungere un elemento ad un array in posizione non specificata)
+    // 1. aggiungere il nuovo partecipante "Novella Novellini" al corso di Informatica 
+    // (aggiungere un elemento ad un array in posizione non specificata)
     // 2. elencare i nomi di tutti i partecipanti (di tutti i corsi)
     // 3. calcolare il numero medio dei partecipanti ai corsi
     // 4. indicare il nome del corso con il maggior numero di partecipanti
@@ -53,14 +54,16 @@ ecc.*/
 
     // 2. elencare i nomi di tutti i partecipanti (di tutti i corsi) => devo scorrere tutti i partecipanti
 
-    foreach ($partecipanti as $i => $p) { // questa riga dice 'per ogni elemento di $partecipanti lo chiamerò $p per ogni iterazione
-        // decido io di chiamare i contenuti di $partecipanti => $p
+    foreach ($partecipanti as $i => $p) { // questa riga dice 'per ogni elemento di $partecipanti 
+        // lo chiamerò $p per ogni iterazione decido io di chiamare i contenuti di $partecipanti => $p
         // questo mi serve per prendere in mano i singoli valori $a[$i-esimi] di $partecipanti
-        // $p = $partecipanti[$i] è quindi la variabile generica che memorizza un elemento di $p1, $p2, $p3 ad ogni iterazione!
+        // $p = $partecipanti[$i] è quindi la variabile generica che memorizza 
+        // un elemento di $p1, $p2, $p3 ad ogni iterazione!
         // voglio scorrere l'intero array $p per fare la echo dei suoi contenuti
         echo "Elenco dei partecipanti del corso " . $corsi[$i] . ":<br>";
         // ho inizializzato nel primo ciclo l'indice $i => di ciascun elemento $p
-        // in questo modo posso utilizzarlo anche per l'array $corsi perche ha lo stesso indice di $partecipanti (0,1,2)
+        // in questo modo posso utilizzarlo anche per l'array $corsi 
+        // perche ha lo stesso indice di $partecipanti (0,1,2)
         // $p = $partecipanti[$i]; 
         // $nome_corso = $corso[$i]; //visto? hanno entrambi indice $i
         echo "<ol>"; //faccio un elenco per separarli meglio
@@ -84,7 +87,8 @@ ecc.*/
 
     echo "<hr>";
 
-    // 1. aggiungere il nuovo partecipante "Novella Novellini" al corso di Informatica (aggiungere un elemento ad un array in posizione non specificata)
+    // 1. aggiungere il nuovo partecipante "Novella Novellini" al corso di Informatica 
+    // (aggiungere un elemento ad un array in posizione non specificata)
 
     // 3. calcolare il numero medio dei partecipanti ai corsi
     // (quindi faccio la somma di tutti i partecipanti che ci sono)
@@ -95,7 +99,8 @@ ecc.*/
     $primo_array_di_partecipanti = $partecipanti[0];
     $max_partecipanti = count($primo_array_di_partecipanti);
     //in questo modo il primo array parte di default come il corso con piu partecipanti
-    $corso_max_partecipanti = ""; //lo inizializzo, così nel caso non trovassi un num max partecipanti ho la stringa vuota
+    $corso_max_partecipanti = ""; //lo inizializzo, così nel caso non trovassi un num max partecipanti 
+    // ho la stringa vuota
 
     // riporto qui il punto 2 in modo semplice senza troppe beghe:
     foreach ($partecipanti as $i => $p) {
@@ -162,8 +167,9 @@ ecc.*/
 
     echo "<hr>";
 
-    // 6. si chiede di aggiungere in fondo ad ogni array dei partecipanti un ulteriore elemento, con
-    // chiave 'corso' e valore il nome del corso, fornito nel secondo array (in $p1 avrò gli studenti e il corso corrispettivo).
+    // 6. si chiede di aggiungere in fondo ad ogni array dei partecipanti un ulteriore elemento, 
+    // con chiave 'corso' e valore il nome del corso, fornito nel secondo array 
+    // (in $p1 avrò gli studenti e il corso corrispettivo).
 
     $p1 = ["Primini Primo", "Secondini Secondo"];
     $p2 = ["Giannini Gianni", "Stefanini Stefano", "Mariolini Maria", "Giacomini Giacomo"];

@@ -65,7 +65,7 @@
         foreach ($array as $key => $val) {
             // faccio scorrere l'array di input stampando ogni volta chiave e valore
             $stringa .= "$key: $val <br>";
-            // .= serve per concatenare e mettere in fila
+            // .= serve per concatenare e mettere in fila (???) che cazzo vuol dire .__ .
         }
         return $stringa;
     }

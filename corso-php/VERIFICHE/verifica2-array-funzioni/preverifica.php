@@ -42,11 +42,13 @@
 
     foreach ($domande as $domanda) {
         //inserisco il corso in un array
-        $elenco_categorie[] = $domanda['categoria'];
+        $elenco_categorie[] = $domanda['categoria']; // (che vale: commerciale, assistenza, etc)
     }
     //rimuovo le categorie duplicate
     $elenco_categorie = array_unique($elenco_categorie);
     // e poi stampo
+    echo "Le categorie di domande sono " . count($elenco_categorie)
+        . ": " . $elenco_categorie[0] . " e " . $elenco_categorie[1];
     echo "<hr>";
 
     // --------------------------------------------------------------------------------------//
@@ -65,17 +67,19 @@
         //copio le categorie in un array
 
 
-        //inizializzo l'array
+        // re-inizializzo l'array
         $elenco_categorie = array();
 
         foreach ($domande as $domanda) {
             //verifico se la domanda è già presente nell'array
-            if (key_exists($domanda['categoria'], $elenco_categorie)) {
+            if (key_exists($domanda['categoria'], $elenco_categorie)) { // $domanda['categoria'] = commerciale, assistenza, etc
+                // anche qui guarda prima fuori dall'else...
                 //la categoria esiste già, aumento i partecipanti
                 $elenco_categorie[$domanda['categoria']]++;
             } else {
-                //la categoria non esiste, lo aggiungo all'array e inizializzo le domande a 1
+                //la categoria non esiste, la aggiungo all'array e inizializzo le domande a 1
                 $elenco_categorie[$domanda['categoria']] = 1;
+                // $elenco_categorie[commerciale => 1, assistenza => 2, etc]
             }
         }
 
@@ -92,13 +96,13 @@
     }
 
     // poi richiamo la funzione e vedo che viene!
-    most_used($domande);
+    echo "La categoria di domande più utilizzata è: " . most_used($domande);
     echo "<hr>";
 
     // --------------------------------------------------------------------------------------//
-    // 4. modificare la funzione del punto precedente in modo che restituisca anche il numero di volte
-    // che è stata utilizzata la categoria (N.B. una funzione può restituire 2 valori solo restituendo
-    // un array)
+    // 4. modificare la funzione del punto precedente in modo che restituisca anche 
+    // il numero di volte che è stata utilizzata la categoria 
+    // (N.B. una funzione può restituire 2 valori solo restituendo un array)
 
     /**
      * Restituisce la categoria più utilizzata
@@ -111,6 +115,7 @@
         //inizializzo l'array
         $elenco_categorie = array();
 
+        // qui tutto uguale a prima
         foreach ($domande as $domanda) {
             //verifico se il corso è già presente nell'array
             if (key_exists($domanda['categoria'], $elenco_categorie)) {
@@ -123,19 +128,25 @@
         }
 
         //cerco la categoria che ha più domande
+        // print_r($elenco_categorie);
+        // Array ( [commerciale] => 1 [assistenza] => 2 )
         $massimo = 0;
         foreach ($elenco_categorie as $key => $value) {
             if ($value > $massimo) {
                 //il numero di domande è superiore al massimo, segno i valori
                 $massimo = $value;
-                $risultato['valore'] =  $massimo;
-                $risultato['categoria'] = $key;
+                // inizializzo $risultato gia da qui
+                $risultato['valore'] =  $massimo; // $risultato [valore => 1]
+                $risultato['categoria'] = $key; // $risultato [valore => 1, categoria = commerciale]
+                // al prossimo ciclo saranno $risultato [valore => 2, categoria = assistenza]
+                // prenderà come risultato solo l'array che ho inizializzato che ha valore (2) 
+                // piu alto del max (che all'inizio è 0 poi 1 di commerciale)
             }
         }
-
         return $risultato;
     }
 
+    echo "La categoria più utilizzata è: <br>";
     var_dump(most_used_alt($domande));
     echo "<hr>";
 
@@ -145,7 +156,7 @@
     // basta moltiplicare x0,5
 
     $costo = 0.5 * count($domande);
-    echo "l''azienda ha speso " . $costo . '€';
+    echo "L'azienda ha speso " . number_format($costo, 2, ',', ' ') . '€ per le domande';
 
 
 

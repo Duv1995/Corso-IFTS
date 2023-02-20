@@ -13,24 +13,30 @@
 // con array_ per quelle che si usano per gli array, etc
 // Se mi servono funzioni specifiche vado su google e cerco quello che mi serve!
 
-
+// SOMMA ARRAY
 // array_sum (array $array) : int|float (restituisce o un intero o un num decimale)
 
+// CONTA ELEMENTI ARRAY
 // count — Counts all elements in an array or in a Countable object
 // count(Countable|array $value, int $mode = COUNT_NORMAL): int
 
+// ESISTE LA CHIAVE X?
 // array_key_exists — Checks if the given key or index exists in the array
 // array_key_exists(string|int $key, array $array): bool (ti restituisce ture o false)
 
+// MOSTRA CHIAVI ARRAY
 // array_keys — Return all the keys or a subset of the keys of an array
 // array_keys(array $array, mixed $filter_value, bool $strict = false): array
 
+// METTI IN FONDO ALL'ARRAY
 // array_push — Push one or more elements onto the end of array
 // array_push(array &$array, mixed ...$values): int
 
+// ???
 // extract — Import variables into the current symbol table from an array
 // extract(array &$array, int $flags = EXTR_OVERWRITE, string $prefix = ""): int
 
+// OFFSET
 // substr — Returns the portion of string specified by the offset and length parameters.
 // substr(string $string, int $offset, ?int $length = null): string
 // offset è lo spostamento, se è 1 mi sposto di un carattere nella stringa "pippo" => "ippo"
@@ -41,7 +47,7 @@
 
 // i parametri opzionali si segnano come ultimi di una funzione e gli si da un = valore default
 
-
+// RIMPIAZZA
 // str_replace — Replace all occurrences of the search string with the replacement string
 // str_replace(
 //     array|string $search, (elemento da cercare = lettera P)
@@ -50,13 +56,13 @@
 //     int &$count = null
 // ): string|array (restituirà pippo => cicco)
 
-
+// ESPLODI
 // explode — Split a string by a string
 // explode(string $separator, string $string, int $limit = PHP_INT_MAX): array
 // mi restituisce un array come risultato, perche ogni funzione può restituire
 // un singolo dato, quindi qui siccome saranno molti te li mette in un array
 
-
+// FORMATO NUMERI
 // number_format — Format a number with grouped thousands
 // può servire perche nei database separiamo i numeri decimali con il punto
 // mentre sul browser ci servono scritti con la virgola
@@ -67,7 +73,7 @@
 //     ?string $thousands_separator = "," (separatore delle migliaia)
 // ): string
 
-
+// TROVA POSIZIONE
 // strpos — Find the position of the first occurrence of a substring in a string
 // strpos(string $haystack, string $needle, int $offset = 0): int|false
 // con === si verifica se il contenuto e il tipo di dato è uguale
