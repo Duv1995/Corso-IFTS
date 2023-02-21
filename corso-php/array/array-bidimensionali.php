@@ -42,18 +42,18 @@
     echo "<hr>";
 
     // ESERCITAZIONE
-    $sekiro =['storia' => 10, 'gameplay' => 10, 'design' => 10];
-    $elden_ring=['storia' => 5, 'gameplay' => 7, 'design' => 5];
-    $giochi=[$sekiro, $elden_ring];
+    $sekiro = ['storia' => 10, 'gameplay' => 10, 'design' => 10];
+    $elden_ring = ['storia' => 5, 'gameplay' => 7, 'design' => 5];
+    $giochi = [$sekiro, $elden_ring];
 
     // stampo i valori di un array con foreach
-    foreach($sekiro as $key => $val){
+    foreach ($sekiro as $key => $val) {
         echo "$key => $val <br>";
     }
     echo "<hr>";
 
-    foreach($giochi as $hehe){
-        foreach ($hehe as $key => $val){
+    foreach ($giochi as $hehe) {
+        foreach ($hehe as $key => $val) {
             echo "$key => $val ";
         }
         echo "<br>";
@@ -128,6 +128,39 @@
         echo "</tr>";
     }
     echo "</table>";
+
+
+
+    // ASSEGNARE L'INDIRIZZO DI UN VALORE
+         foreach ($array as $value)
+        // se voglio assegnare a $value non un valore, ma un riferimento al valore 
+        // di un altra cella $key dell'array devo usare la & davanti alla value
+        foreach ($array as &$value)
+        // in questo caso specifico $value ad ogni ciclo ha l'indirizzo del
+        // primo elemento, al secondo ciclo ha l'indirizzo del secondo elemento, etc...
+
+        // & si usa tantissimo nei cicli in cui vuoi modificare 
+        // i singoli elementi dell'array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     ?>
 </body>
