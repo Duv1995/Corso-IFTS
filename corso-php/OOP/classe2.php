@@ -42,18 +42,79 @@
             $this->data_nascita = $data_nascita;
             // posso chiamare i valori con lo stesso nome della stringa di ingresso
         }
+
+        // ------------------------------------------------------------------------------------------ //
+
         // creo il metodo che calcola l'età dello studente
-        function eta(){
+        function eta()
+        {
             // se mese - giorno corrente > mese - anno della data di nascita 
             // allora va bene così
-            if()
+            // if()
             $anno_nascita = substr($this->data_nascita, 0, 4);
             // substring sottrae a una stringa tutto tranne gli ultimi 4 valori?
             $eta = date("Y") - $anno_nascita;
             return $eta;
 
-          //altrimenti 
+            //altrimenti 
             //$eta -= 1; decremento l'età di 1
+        }
+
+        // creo il metodo setVoti che inizializza l'array dei voti
+        function setVoti($voti)
+        {
+            if (!$voti) {
+                // se NON è un array che ha almeno 1 elemento
+                return false;
+            }
+            //i voti devono essere in 100 compresi tra 1 e 100
+            foreach ($voti as $voto) {
+                if ($voto >= 1 && $voto <= 100) {
+                    //voto accettabile                    
+                } else {
+                    // voto non accettabile
+                    return false;
+                }
+            }
+            $this->voti = $voti;
+        }
+
+        //metodo set password di Classroom che comprende la validazione: 
+        // lunghezza min 10 (strlength), 
+        // contenere almeno 1 maiuscola (fai un ciclo che valuta con substr per ogni carattere), 
+        // almeno 1 numero
+        function setPassword($p)
+        {
+            // setto le mie condizioni iniziali su falso e poi le verificherò
+            $condizione_1_numero = false;
+            $condizione_1_maiuscola = false;
+
+            for (
+                $i = 0;
+                $i < strlen($p) ||
+                    //cambio la condizione per uscire dal ciclo con un OR
+                    ($condizione_1_numero && $condizione_1_maiuscola);
+                //se entrambe le due condizioni vengono verificate esco dal ciclo!
+                $i++
+            ) {
+                // questa è la funzione per estrarre ad ogni ciclo ogni lettera della mia pass
+                substr($p, $i, 1);
+                // (password, distanza offset che ad ogni ciclo equivale a $i, 1 ???)
+
+                // controllo $c
+                //$c compreso tra 0 e 9 
+                //-> se vero, $condizione_1_numero = true; diventa true e la pass va bene
+                //$c compreso tra "A" e "Z"
+                //-> se vero, $condizione_1_maiuscola = true;
+
+            }
+
+            // aggiungere anche la condizione lunghezza
+            if ($condizione_1_numero && $condizione_1_maiuscola) {
+                //password OK
+            } else {
+                //password non corretta
+            }
         }
     }
     echo "<br>";
@@ -72,14 +133,21 @@
     $studente1 = new Studente("Meeerio", "Rossie");
     // gli dico che questo nuovo oggetto ha tutte le proprietà/variabili della classe Studente
 
+
+
+    // ------------------------------------------------------------------------------------------ //
     // PER CASA aggiungi alla classe:
 
     // metodo eta che restituisce l'età dello studente
     $studente1->set_data_nascita("1990-10-21"); // 21 ottobre 1990
     echo "di anni " . $studente1->eta();
-
+    echo "<hr>";
 
     // metodo setVoti che inizializza l'array dei voti (che è una proprietà/variabile)
+    $s2 = new Studente("Bruno", "Bianchi");
+    $s2->setVoti([60, 100, 50, 81]);
+    // per vedere i voti che ha dovrei inserire anche il getVoti
+
     // metodo setPassword che comprende la validazione della password di Classroom: 
     // lunghezza min 10, contenere almeno 1 maiuscola, almeno 1 numero
 
