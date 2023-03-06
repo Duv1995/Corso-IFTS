@@ -108,3 +108,5 @@ garage.stampa_auto = function (marca) {
         console.log(auto.marca + " " + auto.modello)
     }
 }
+
+// PER CASA: aggiungi la targa alle auto e fai il controllo tramite targa per quando la rimuovi
