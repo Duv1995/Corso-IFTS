@@ -50,7 +50,10 @@
     // tutto sto codice è sempre uguale e va messa in un file esterno 
     // che includerò ogni volta che in un progetto devo accedere al database
 
-    $host = "localhost"; $user = "root"; $pass = ""; $dbname = "ifts";
+    $host = "localhost";
+    $user = "root";
+    $pass = "";
+    $dbname = "ifts";
     // trovo l'host su cui è ospitato il mio database (IP), 
     // sono queste le 4 info fondamentali, per ora sono messe in modo statico
     // ma tendenzialmente ogni volta li devi cambiare per andare su altri database
@@ -59,7 +62,7 @@
     // sotto dbname metto IFTS (nome del mio database)
 
     try { //il mio primo tentativo
-        $connessione = new PDO($dsn, $user, $pass); 
+        $connessione = new PDO($dsn, $user, $pass);
         //inserisco nuovo oggetto PDO mettendo utente e password e dsn
         $st = $connessione->prepare("SELECT * FROM regioni WHERE ID_regione = :id ");
         // questa è la chiamata al metodo prepare della classe PDO
@@ -77,6 +80,21 @@
     }
     echo "estratti n. record = " . count($records);
 
+
+
+    // PER LA VERIFICA
+    // DEFINIZIONE CLASSE E METODO 
+    /*Esercizio PHP
+    Si chiede di realizzare una sezione di un sito web che permetta di consultare l’elenco
+    delle città, memorizzate nel database ifts.
+    In particolare, le operazioni richieste sono le seguenti:
+    1. Collegarsi al db ifts
+    2. Elencare tutte le città
+    3. Indicare il numero di città elencate
+    4. Scrivere la sigla provincia con più città collegate
+    5. Definire la funzione che, dato in ingresso il nome di una regione, restituisce il
+    numero delle città collegate
+    function nome_funzione ($nome_regione) */
 
 
 
