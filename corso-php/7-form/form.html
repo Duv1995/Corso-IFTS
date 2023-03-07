@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 5</title>
+</head>
+
+<body>
+    <h1>Form</h1>
+    <form action="form-data.php" method="POST">
+        <!-- questo è il metodo in cui invio i dati del form alla pagina PHP -->
+        <!-- questa action fa una chiamata al file form-data.php -->
+        <!-- il metodo GET è quello che invia i dati sull'URL -->
+        <!-- il metodo POST è quello che invia i dati nell'header del messaggio -->
+        <fieldset>
+            <legend>Dati di contatto</legend>
+            <label for="txtCognome">Cognome</label>
+            <input type="text" name="txtCognome" id="txtCognome" placeholder="inserisci il cognome">
+            <!-- ID è l'attributo che identifica in modo univoco quell'elemento della pagina web 
+            ma ha solo valenza sul lato client, sul lato server PHP id non mi dice NULLA!!! 
+            fuck off ID, you belong to the trash, adesso ti cancello -->
+            <!-- il NAME è l'attributo che ci interessa nella pagina PHP -->
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <label for="mdrPreferito" contenteditable="true">Scegli il MdR:</label>
+            <input list="mdrPreferito">
+            <datalist id="mdrPreferito">
+                <option value="google">google</option>
+                <option value="bing">bing</option>
+                <option value="yahoo">yahoo</option>
+                <option value="yandex">yandex</option>
+            </datalist>
+        </fieldset>
+        <label for="dataNascita">Data di Nascita:</label>
+        <input type="date" name="dataNascita" id="dataNascita">
+        <fieldset>
+            <legend>Titolo di studio</legend>
+            <input type="radio" name="radTitoloDiStudio" id="licenzaMedia">
+            <label for="licenzaMedia">Licenza Media</label>
+            <input type="radio" name="radTitoloDiStudio" id="diplomaMaturita">
+            <label for="diplomaMaturita">Diploma Maturità</label>
+            <input type="radio" name="radTitoloDiStudio" id="diplomaIts">
+            <label for="diplomaIts">Diploma ITS</label>
+            <input type="radio" name="radTitoloDiStudio" id="laureaTriennale">
+            <label for="laureaTriennale">Laurea Triennale</label>
+            <input type="radio" name="radTitoloDiStudio" id="laureaMagistrale">
+            <label for="laureaMagistrale">Laurea Magistrale</label>
+        </fieldset>
+
+        <textarea name="commento" id="commento" cols="90" rows="5">consegnare al 2 piano</textarea>
+        <section id="pulsanti">
+            <button type="submit">Invia Dati</button>
+            <input type="reset" value="Reimposta Dati">
+        </section>
+    </form>
+</body>
+
+</html>

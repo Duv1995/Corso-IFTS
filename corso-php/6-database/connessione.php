@@ -29,6 +29,8 @@
 
     $dsn = "mysql:dbname=ifts;host=127.0.0.1";
     // il dsn lo faccio in modo statico sta volta
+    // ma normalmente questi campi si inseriscono in modo dinamico tramite variabili
+    // al posto di dbname e numerino host
 
     try {
         // qui scrivo il codice che potrebbe lanciare un eccezione
@@ -45,14 +47,39 @@
 
         // STEP 2 - PREPARO LO STATEMENT
         // statement sarebbe la query da mandare al DBMS
+        $area_geografica = "Sud"; 
+        $regione = "Sicilia";
+        // nuove variabili dinamiche da bindare dopo
         $st = $con->prepare("SELECT *
         FROM citta INNER JOIN regioni ON citta.regione = id_regione
-        WHERE area_geografica = 'Sud'");
+        WHERE area_geografica = :area_geografica AND c.regione = :regione"); 
         // qui dentro scrivo la query, il prepare produrrà un nuovo oggetto
         // di classe PDOStatement, che salverò nell'oggetto $st
+        // :area_geografica e .regione sono i segnaposto del bind
         echo "Oggetto statement preparato<br>";
 
-        // STEP 3 - BIND (da vedere dopo)
+        // STEP 3 - BIND
+        // ogni volta che ho delle query che contengono elementi dinamici
+        // non posso sapere a priori il contenuto di questa parte dinamica
+        // es il nome della città da trovare non glie lo do io nel file ma viene 
+        // preso da un form che viene invitao dopo che l'utente lo ha compilato...
+
+        // in questi casi devo assicurarmi che il campo variabile esista nel mio DB
+        // sennò se fai una delete di un campo e lo scrivi male ti rasa via tutto!!!
+
+        // il BIND ci permette di effettuare un collegamento tra il dato che sto usando
+        // e il contenuto che questo dato deve avere
+
+        // per fare la bind devo mettere i : prima del parametro che voglio usare come
+        // segnaposto, e nella bind metto il tipo di dato a cui deve corrispondere
+        // se il check viene verificato e il segnaposto è del tipo dichiarato
+        // allora la query viene eseguita, altrimenti da errore
+        $st->bindParam('area_geografica', $area_geografica, PDO::PARAM_STR);
+        // si inserisce il segnaposto, la variabile a cui fa riferimento, e il tipo di dato 
+        // se ci sono piu segnaposti : devo mettere un bind per ogni segnaposto :
+        $st->bindParam('regione', $regione); // posso omettere il tipo
+
+
 
         // STEP 4 - ESEGUO LO STATEMENT
         // devo eseguire lo statement che ho preparato in $st
@@ -68,6 +95,13 @@
         // dentro le parentesi inserisco il modo in cui viene restituita la risposta
         // di questo metodo, in questo caso me li restituisce in un array associativo
         // se tutto è andato bene $righe conterrà l'array bidimensionale dei record estratti!
+
+        //2° PDOstatement
+        $st2 = $con->prepare("SELECT * FROM prenotazioni");
+        // statement 2
+        $st2->execute();
+        $prenotazioni = $st2->fetchAll(PDO::FETCH_ASSOC);
+        // ho fatto un secondo pdo statement con la sua fetch associata
 
 
     } catch (PDOexception $e) {

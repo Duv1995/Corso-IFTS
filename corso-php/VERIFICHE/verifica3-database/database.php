@@ -12,7 +12,12 @@
     <?php
 
     // PER LA VERIFICA
-    // DEFINIZIONE CLASSE E METODO 
+    /* Da sapere per la verifica
+    1) connessione al database
+    2) estrarre i dati dal DB con le query (anche col bind?)
+    3) elaborare i dati estratti
+    3) definizione di una classe e del suo metodo
+    */
     
     /*Esercizio PHP
     Si chiede di realizzare una sezione di un sito web che permetta di consultare l’elenco
@@ -25,22 +30,6 @@
     5. Definire la funzione che, dato in ingresso il nome di una regione, restituisce il
     numero delle città collegate
     function nome_funzione ($nome_regione) */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
