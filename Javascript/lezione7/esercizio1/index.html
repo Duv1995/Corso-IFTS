@@ -1,0 +1,51 @@
+<html>
+<!-- Utilizzando le Classi Rubrica e Contatto
+dell’esercizio svolto la volta scorsa creiamo una
+pagina web che visualizzi la lista dei contatti
+presenti nella rubrica, la lista deve essere
+numerata e avere un colore di background
+diverso alternato. -->
+
+<head>
+    <title>Rubrica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2>La mia rubrica</h2>
+        <div id="rubrica">
+            <!-- creo la header della rubrica -->
+            <div id="rubrica-testata" class="row bg-dark">
+                <!-- text light per fare il testo bianco su bg dark -->
+                <!-- col-md serve per far si che le colonne rimangano 3
+                anche quando restringi la pagina da mobile -->
+                <div class="col-md-3 text-light">ID</div>
+                <div class="col-md-3 text-light">Nome</div>
+                <div class="col-md-3 text-light">Cognome</div>
+                <div class="col-md-3 text-light">Telefono</div>
+            </div>
+
+            <!-- creo le righe della rubrica -->
+            <div id="rubrica-row">
+                <!-- qu inseriremo le righe coi dati dei contatti -->
+            </div>
+            <!-- vado su bootstrap e recupero il simbolino del caricamento
+                e lo aggiungo qui -->
+            <div id="loader" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- importo il file JS che contiene tutte le funzionalità 
+        per andare a creare una rubrica -->
+    <script src="rubrica.js"></script>
+    <script src="init-data.js"></script>
+    <!-- inserisco lo script che ho fatto per popolare la tabella -->
+    <script src="loading-data.js"></script>
+
+</body>
+
+</html>

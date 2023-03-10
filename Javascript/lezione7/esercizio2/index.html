@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDINI RISTORANTE</title>
+    <!-- href di bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<!-- facciamo un altra pagina con l'elenco dei ristoranti -->
+
+<body>
+    <script>
+        // mettiamo un array di ordini, dobbiamo far saltare fuori sul browser una tabella che mostra questi valori qui
+        let ordini = [
+            { "contatto": "Giuseppe Prof", "indirizzo": "Viale Principe Amedeo 7", 
+            "prodotti": ["Spaghetti alla romana", "Birra"] },
+            { "contatto": "Andrea Rossi", "indirizzo": "Viale Marsala 7", 
+            "prodotti": ["Riso cantonese", "Cocacola"] },
+            { "contatto": "Andrea Bianchi", "indirizzo": "Viale Marsala 7", 
+            "prodotti": ["Spaghetti n meatballs", "Vino Rosso", "Pollo alle mandorle"] },
+        ]
+    </script>
+
+    <div class="container">
+        <h2>Lista ordini</h2>
+        <div id="lista">
+            <!-- creo la header della rubrica -->
+            <div id="lista-header" class="row bg-dark">
+                <div class="col-md-3 text-light">ID</div>
+                <div class="col-md-3 text-light">Nominativo</div>
+                <div class="col-md-3 text-light">Indirizzo</div>
+                <div class="col-md-3 text-light">Prodotti</div>
+            </div>
+
+            <!-- creo le righe della rubrica -->
+            <div id="lista-row">
+                <!-- qu inseriremo le righe coi dati dei contatti -->
+            </div>
+
+            <!-- inserisco lo script che ho fatto per popolare la tabella -->
+            <script src="loading-data.js"></script>
+
+</body>
+
+</html>
