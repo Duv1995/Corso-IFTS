@@ -74,15 +74,21 @@ numeroCittaCollegate. -->
                 }
             }
         }
-        $regioni = array ("Abruzzo" => $abruzzo, 
-        "Basilicata" => $basilicata, 
-         "calabria" => $calabria,
-         "campania" => $campania,
-         "molise" => $molise,
-         "puglia" => $puglia);
+        $regioni = array(
+            "Abruzzo" => $abruzzo,
+            "Basilicata" => $basilicata,
+            "calabria" => $calabria,
+            "campania" => $campania,
+            "molise" => $molise,
+            "puglia" => $puglia
+        );
 
-        foreach ($regioni as $k => $v){
-            $regione_max = max($v);
+        $regione_max = "";
+        $max = 0;
+        foreach ($regioni as $k => $v) {
+            if ($v > $max) {
+                $max = $v;
+            }
         }
 
         $regione_max = max($regioni);
