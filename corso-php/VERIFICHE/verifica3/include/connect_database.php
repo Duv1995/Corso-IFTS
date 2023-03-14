@@ -15,8 +15,9 @@ function funz_connessione()
         //1. connessione
         $connessione = new PDO($dsn, "root", "");
         echo "CONNESSIONE EFFETTUATA! <hr>";
-
     } catch (PDOException $errore) {
+        // variabile che viene automaticamente valorizzata con i dettagli dell'errore catturato
+        // è un oggetto della classe PDOException con i suoi metodi e proprietà!
         echo "Errore di connessione ";
         echo $errore->getMessage();
     }

@@ -17,6 +17,8 @@ function fz_connessione()
         //echo "connessione effettuata";
 
     } catch (PDOException $e) {
+        // variabile che viene automaticamente valorizzata con i dettagli dell'errore catturato
+        // è un oggetto della classe PDOException con i suoi metodi e proprietà!
         echo "Errore di connessione ";
         echo $e->getMessage();
     }
