@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Esercizio 4
+Scrivere una pagina HTML con un con all’interno i seguenti campi:
+● una lista (ul) con 3 immagini (https://via.placeholder.com/1000x500.png,
+https://via.placeholder.com/1000x200.png, https://via.placeholder.com/1000x100.png )
+● al caricamento della pagina solo il primo elemento della lista è visibile, 
+gli altri li hanno tutti nello style “display: none” impostato.
+● un bottone (precedente)
+● un bottone (successiva)
+Aggiungere alla pagina HTML due funzioni JavaScript che esegue:
+● al click sul bottone precedente viene mostrata l’immagine precedente;
+● al click sul bottone successiva viene mostrata l’immagine successiva; -->
+
+    <div class="container">
+
+        <!-- qui inserisco le tre immagini -->
+        <div class="row p-2">
+            <ul id = "carosello" style = "list-style-type: none; display: inline;">
+                <!-- modifico la UL per non mostrare i pallini e per mettere le LI in riga -->
+                <!-- gli do anche un ID per prenderlo dopo con get element by id -->
+
+                <li><img class="img-fluid" src="https://via.placeholder.com/1000x500.png" /></li>
+                <!-- le altre due immagini hanno display none di default -->
+                <li class="d-none"><img class="img-fluid" src="https://via.placeholder.com/1000x500.png" /></li>
+                <li class="d-none"><img class="img-fluid" src="https://via.placeholder.com/1000x500.png" /></li>
+            </ul>
+        </div>
+
+        <!-- qui inserisco i bottoni per cambiare immagine -->
+        <div class="row p-2">
+            <button class="btn btn-primary" onclick="indietro()">Indietro</button>
+            <button class="btn btn-primary" onclick="avanti()">Avanti</button>
+        </div>
+
+    </div>
+
+
+    <script src="esercizio4.js"></script>
+</body>
+
+</html>
