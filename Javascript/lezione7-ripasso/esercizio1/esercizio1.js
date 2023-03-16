@@ -5,6 +5,7 @@
 function stampaTabelline(numeroInteri) {
     // prendo il div del contenitore root con ID
     let div = document.getElementById("tabelline");
+
     // ciclo for che parte da 1 al numero che metto in input
     for (let index = 1; index <= numeroInteri; index++) {
         // la parte dentro la scrivo dopo... prima creo colonne e righe
@@ -14,25 +15,29 @@ function stampaTabelline(numeroInteri) {
         // dopo aver fatto tutto creo colonne e righe con le funzioni fatte sotto
         let cols = creaColonne(index);
         let riga = creaRiga(index, cols);
+
         // e poi le appendo al mio div contenitore
         div.appendChild(riga);
     }
 }
 
-// funzione che crea le colonne, che in input prendo 
-// il numero della riga corrispondente che mi da il moltiplicatore
+// funzione che crea le colonne, che in input prende il numero della riga
+// corrispondente che mi da la funzione scritta qua sopra!
 // ritorna un array di colonne che le passa a un altra funzione che le inserisce all'interno di una riga
 
 function creaColonne(index) {
     // inizializzo l'array di colonne
     let cols = [];
+
     // ciclo che parte da 1 a 10
+    // index di input e y del ciclo sono due numeri diversi!
     for (let y = 1; y <= 10; y++) {
-        // creo una colonna per ogni numero
+        // creo una colonna <div> per ogni numero
         let colonna = document.createElement("div");
         colonna.className = "col";
         // inserisco dentro ogni cella della colonna il prodotto della moltiplicazione
         colonna.innerHTML = y * index;
+        // nella prima colonna sarà ad es 1*1, 1*2, etc
         // inserisco il div che ho creato nel mio array cols
         cols.push(colonna);
     }
@@ -41,8 +46,8 @@ function creaColonne(index) {
 }
 
 // ora devo creara la funzione per creare le righe, 
-// prende in input l'indice e l'array delle colonne
-function creaRiga(index, cols) {
+// prende in input l'array delle colonne
+function creaRiga(cols) {
     // creo la riga
     let riga = document.createElement("div");
     riga.className = "row";

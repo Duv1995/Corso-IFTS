@@ -38,7 +38,7 @@ function avanti_esempio() {
 function getLiActive(carosello) {
     let carosello = document.getElementById("carosello");
     // questa funzione mi ritorna l'indice posizionale 
-    // del mio LI attivoche quindi non ha il dnone
+    // del mio LI attivo che quindi non ha il dnone
 
     for (let index = 0; index < carosello.children.length; index++) {
         // ciclo per la lunghezza dei children di UL
