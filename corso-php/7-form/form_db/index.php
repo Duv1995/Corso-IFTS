@@ -39,7 +39,7 @@
 
 
     <div>Seleziona l'area geografica</div>
-    <form action="elenco_citta.php" method="POST">
+    <form action="elenco_citta.php" method="GET">
 
         <select name="area-geografica">
             <!-- voglio che il mio elenco di opzioni sia dinamico 
@@ -55,10 +55,10 @@
         <button>INVIA</button>
 
         <!-- creo il file elenco_citta.php nella stessa cartella -->
-
-
-
+        
     </form>
+
+
 
 
 
