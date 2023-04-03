@@ -14,6 +14,24 @@
         crossorigin="anonymous"></script>
 </head>
 
+<!-- ESERCIZIO 2
+Dobbiamo andare a modificare l'UI aggiungendo il campo email obbligatorio 
+(aggiungendo anche la colonna)
+
+poi devo modificare quella parte di layer applicativo che gestisce la rubrica
+(rubrica.js) inserendo al suo interno tutte le chiamate HTTP che corrispondono
+alle varie azioni compiute in quel file 
+(ricerca, aggiungi contatto, modifica, etc)
+Andiamo quindi a chiamare qui questo endpoint api, se fai questa rotta in GET
+espone la lista di tutti i contatti inseriti, se metti /ID vai a fare il GET
+del singolo contatto, se fai DELETE con ID cancelli, POST senza ID aggiungi
+PUT modifichi il contatto con id
+(numeroDiTelefono del JSON è numero da noi!) 
+
+Quindi in rubrica.js creo le funzioni nuove utilizzando le promesse o le 
+richiest xml, e mettere nei posti giusti le chiamate che fanno GET e POST
+ -->
+
 <body>
     <div class="container">
         <h2>La mia rubrica</h2>
@@ -27,10 +45,11 @@
         <div id="rubrica" class="mt-3">
             <div id="rubrica-testata" class="row bg-dark">
                 <div class="col-md-1 text-light">ID</div>
-                <div class="col-md-3 text-light">Nome</div>
-                <div class="col-md-3 text-light">Cognome</div>
-                <div class="col-md-3 text-light">Numero di Telefono</div>
-                <div class="col-md-2 text-light">Azioni</div>
+                <div class="col-md-2 text-light">Nome</div>
+                <div class="col-md-2 text-light">Cognome</div>
+                <div class="col-md-2 text-light">Email</div>
+                <div class="col-md-2 text-light">Numero di Telefono</div>
+                <div class="col-md-1 text-light">Azioni</div>
             </div>
             <div id="rubrica-row">
                 <!-- qui andremo ad inserire le nostre righe-->
@@ -65,6 +84,10 @@
                         <div class="col-md-6">
                             <label class="form-label" for="cognome">Cognome</label>
                             <input class="form-control" id="cognome" name="cognome" value="">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" id="email" name="email" value="">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="numero">Numero di Telefono</label>
@@ -129,7 +152,6 @@
     </div>
 
     <script src="rubrica.js"></script>
-    <script src="init-data.js"></script>
     <!-- script su cui metterò le funzioni jquery -->
     <script src="gestione-rubrica.js"></script>
     <!-- non utilizzerò piu il file loading-data, lo rifaccio con jquery -->

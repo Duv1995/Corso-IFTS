@@ -6,12 +6,14 @@ molto concisa ed alcune specifiche caratteristiche.
 Le arrow functions non sono semplicemente una “scorciatoia” per scrivere codice
 più breve. */
 
-// metodo tradizionale
+// metodo tradizionale 
+// function nome (){}
 let somma = function (x, y) {
     return x + y;
 }
 
 // con le arrow function 
+// () => ...;
 let somma1 = (x, y) => x + y;
 let totale = somma(3, 2);
 

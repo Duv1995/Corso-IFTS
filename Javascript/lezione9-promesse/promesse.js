@@ -3,7 +3,7 @@
 dei processi asincroni in background.
 Iniziamo col dire che le Promise sono state concepite per rappresentare operazioni incomplete
 al momento corrente che saranno però complete in futuro; per questo motivo parliamo di un
-costrutto adottato nel caso di elaborazioni asincrone e differite, infati permettono di gestire
+costrutto adottato nel caso di elaborazioni asincrone e differite, infatti permettono di gestire
 in modo asincrono il mio codice, perche i miei processi rimangono in attesa di risposte
 mentre continuano a lavorare. 
 Data la loro natura le Promise prevedono tre stati differenti:

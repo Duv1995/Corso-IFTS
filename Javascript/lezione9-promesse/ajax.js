@@ -56,7 +56,7 @@ xhr.open('GET', 'https://...');
 Il parametro opzionale body contiene il corpo della richiesta.
 Alcuni metodi, come ad esempio GET non supportano il body nella richiesta,
 mentre altri, come POST usano un body per inviare dati al server.  */
-xhr.send();
+xhr.send(); // oppure xhr.send(body);
 
 // 4) mi metto in ascolto per la risposta del server
 /*Ci mettiamo in ascolto sugli eventi xhr per la risposta.
@@ -108,15 +108,15 @@ xhr.responseType = 'json'; // durante il punto 2
 in fase di richiesta al nostro server.
 XMLHttpRequest permette di personalizzare le richieste HTTP, 
 sia tramite l’invio di headers personalizzati che la loro lettura
-nelle risposte. 
-I metodi per gli header HTTP sono 3:
-● setRequestHeader(name, value)
-● getResponseHeader(name)
-● getAllResponseHeaders() */
+nelle risposte. */
+// I metodi per gli header HTTP sono 3:
+// ● setRequestHeader(name, value)
 xhr.setRequestHeader('Content-Type', 'application/json'); 
 // imposta il contenuto della richiesta (questo è il MIME type)
+// ● getResponseHeader(name)
 xhr.setResponseHeader('Content-Type'); 
 // ritorna il tipo di contenuto della risposta (il tipo di risp dipende dal server)
+// ● getAllResponseHeaders()
 xhr.getAllResponseHeaders; 
 // ritorna tutti gli header della risposta
 

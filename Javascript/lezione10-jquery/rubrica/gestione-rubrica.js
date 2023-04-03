@@ -1,3 +1,4 @@
+// FILE IN CUI MODIFICO L'HTML
 // voglio che al caricamento della pagina web mi compare tutta la lista
 // dopo che lo spinner ha girato un pochetto
 
@@ -35,11 +36,12 @@ $(document).ready(
 
                 const nome = $("#mod-nome").val();
                 const cognome = $("#mod-cognome").val();
+                const email = $("#mod-email").val();
                 const telefono = $("#mod-numero").val();
                 const id = $("#mod-id-contatto").val();
                 // creo un nuovo oggetto contatto da passare 
                 // al nostro service manager rubrica.js
-                let contatto = new Contatto(nome, cognome, telefono);
+                let contatto = new Contatto(nome, cognome, email, telefono);
                 if (rubrica !== null && rubrica !== undefined && id !== undefined) {
                     // faccio le modifiche
                     rubrica.modificaContatto(id, contatto);
@@ -54,9 +56,10 @@ $(document).ready(
             $("button.crea-contatto").on("click", function () {
                 const nome = $("#nome").val();
                 const cognome = $("#cognome").val();
+                const email = $("#email").val();
                 const telefono = $("#numero").val();
                 //creiamo un oggetto contatto da passare al nostro serviceManager Rubrica
-                let contatto = new Contatto(nome, cognome, telefono);
+                let contatto = new Contatto(nome, cognome, email, telefono);
                 if (rubrica !== null && rubrica !== undefined) {
                     rubrica.aggiungiContatto(contatto);
                     stampaContatti();
@@ -68,6 +71,7 @@ $(document).ready(
                 // i campi devono essere vuoti quando fai nuovo contatto
                 $("#nome").val("");
                 $("#cognome").val("");
+                $("#email").val("");
                 $("#numero").val("");
                 aggiungiContattoModal.show();
             });
@@ -141,9 +145,10 @@ function stampaContatti(listaContatti) {
         // creo le mie 4 colonne facendo appendchild della mia colonna
         divRoot.append(divRiga);
         divRiga.appendChild(creaDivColonne(index, "col-1")); // ID
-        divRiga.appendChild(creaDivColonne(contatto.nome, "col-3"));
-        divRiga.appendChild(creaDivColonne(contatto.cognome, "col-3"));
-        divRiga.appendChild(creaDivColonne(contatto.telefono, "col-3"));
+        divRiga.appendChild(creaDivColonne(contatto.nome, "col-2"));
+        divRiga.appendChild(creaDivColonne(contatto.cognome, "col-2"));
+        divRiga.appendChild(creaDivColonne(contatto.email, "col-2"));
+        divRiga.appendChild(creaDivColonne(contatto.numeroDiTelefono, "col-2"));
 
         // creo i bottoni di azione con la funzione sotto modificata
         let divActions = creaDivColonne(creaBtnAzione(index, "Cancella"), "col-2");
@@ -203,7 +208,8 @@ function stampaContatti(listaContatti) {
             // le ho jsonificate prima (for reasons...)
             $("#mod-nome").val(contattoobj._nome);
             $("#mod-cognome").val(contattoobj._cognome);
-            $("#mod-numero").val(contattoobj._telefono);
+            $("#mod-email").val(contattoobj._email);
+            $("#mod-numero").val(contattoobj._numeroDiTelefono);
             $("#mod-id-contatto").val(id);
 
             // al click mostrerò la mia modale tramite il suo metodo show 
