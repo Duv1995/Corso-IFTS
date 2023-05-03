@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERIFICA DAVIDE GIARDI</title>
+</head>
+
+<body>
+<!-- FORM 
+form e metodo passaggio dati tramite GET e POST (get query string nel link per passare le info)
+secondo argomento database 
+
+campi di input in cui scrivere le info e submit per inviare le info scritte nella next page 
+la pagina successiva riceve i dati col metodo utilizzato nel form!
+
+POST E GET
+il metodo default è POST e ha action = nome del file in cui posto quando faccio submit
+l'action ha il nome della pagina successiva
+
+a seconda del metodo utilizzato i dati nella next page saranno disponibili in un array
+$_GET/POST variabili superglobali (nel dubbio $_REQUEST i dati ci sono sempre)
+
+QUERYSTRING
+Possiamo avere anche un link a href= nome del link con query string
+composto da nome file e query string che è la stessa che si crea quando usi il GET quando invii
+il form e guardi nella barra dell'URL e la vedi li lol
+
+nomefile.php?querystring coppie chiave valore (name, ricorda che è l'attributo name che viene passato!)
+quindi l'url sarà tipo: nomefile.php?chiave=valore&nome=mario&...
+per realizzare il link per passare info alla next page si fa così!
+
+QUERYSTRING DINAMICA
+questa però è la modalità statica per costruire la querystring, se voglio passargli chiavi=valori dinamiche
+devo far scegliere al navigatore quali sono i dati da inviare
+
+per fare questo faccio un foreach per ogni record estratto dal database che voglio elencare
+vado a scrivere il codice html oppure dentro una echo e all'interno del foreach metto
+$nome e $cognome che mi sono memorizzato prima che saranno i contenuti da inserire nel link dinamico
+echo "<a href= "link.php?nome=$nome%cognome=$cognome">clicca qui</a>
+
+questo permette di avere un link per ciascun nome da inviare in una lista
+- mario rossi
+- luigi versi
+- etc...
+e ognuno avrà il link col proprio nome cognome
+la pagina successiva riceverà i dati sottoforma di link GET 
+
+BIND 
+il bind serve perche uno nel form potrebbe metterti
+nelcampo di ricerca '; delete* from tabella' 
+e se il form lo legge esegue la query e ti cancella tutto!
+bindare il valore del campo verifica che il tipo inserito
+sia del tipo corretto, che di default è una stringa 
+(ecco perche non lo mettiamo mai)
+
+-->
+
+<!-- VERIFICA
+1) crea un form con un campo di ricerca: nome regione
+2) selezionare dalla tabella regioni i record che contengono nel noem regione o area geografica
+il valore inserito nel form precedente non cerco la corrispondenza esatta ma una porzione LIKE nella query
+3) scrivi il nome della regione dei record selezionati (ho un elenco di nomi di regione)
+4) inserire un link sui record del punto 3 sulla pagina 
+(su ognuno di questi nomi ho un link dinamico con nome regione che cambia se faccio hover su ciascuna regione)
+5) creare la pagina regione.php con l'elenco di tutti i campi della regione (area geografica, città, ci sono tutti i dati della regione)
+6) nella pagina regione.php elenco tutte le città di quella specifica regione
+
+ESEMPIO
+prima pagina = form in cui inserisco il nome regione nel campo input cerca 
+che puo cercare sia area geografica che regione (lombardia oppure sud)
+seconda pagina = mi restituisce i risultati della ricerca (con like)
+ogni voce di questo elenco saranno le regioni, e ogni regione contiene un link
+il link porta alla terza pagina
+terza pagina = ho i dettagli della singola regione su cui ho clicccato
+'hai cliccato lombardia che si trova in area geografica x le sue città sono: elenco città lombardia'
+-->
+
+
+
+</body>
+
+</html>
